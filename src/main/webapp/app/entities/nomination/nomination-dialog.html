@@ -1,0 +1,60 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myNominationLabel">Create or edit a Nomination</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.nomination.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.nomination.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nominationDt">Nomination Dt</label>
+                <div class="input-group">
+                    <input id="field_nominationDt" type="text" class="form-control" name="nominationDt" datetime-picker="{{dateformat}}" ng-model="vm.nomination.nominationDt" is-open="vm.datePickerOpenStatus.nominationDt"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('nominationDt')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nominationText">Nomination Text</label>
+            <input type="text" class="form-control" name="nominationText" id="field_nominationText"
+                    ng-model="vm.nomination.nominationText"
+                    required />
+            <div ng-show="editForm.nominationText.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nominationText.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_nominee">Nominee</label>
+            <select class="form-control" id="field_nominee" name="nominee" ng-model="vm.nomination.nomineeId" ng-options="user.id as user.id for user in vm.users"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_nominatedBy">Nominated By</label>
+            <select class="form-control" id="field_nominatedBy" name="nominatedBy" ng-model="vm.nomination.nominatedById" ng-options="user.id as user.id for user in vm.users"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

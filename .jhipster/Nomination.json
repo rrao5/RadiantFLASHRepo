@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "nominee",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "nomination"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "nominatedBy",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "nomination"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nominationDt",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "nominationText",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160903145945",
+    "entityTableName": "nomination",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl"
+}

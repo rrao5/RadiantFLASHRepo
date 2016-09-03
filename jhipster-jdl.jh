@@ -1,0 +1,17 @@
+entity Nomination {
+	nominationDt ZonedDateTime
+    nominationText String required
+}
+
+relationship OneToOne {
+	Nomination{nominee} to User,
+	Nomination{nominatedBy} to User
+}
+
+// Set pagination options
+paginate Nomination with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
