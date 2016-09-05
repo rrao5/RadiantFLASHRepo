@@ -38,13 +38,14 @@
 
         <div class="form-group">
             <label for="field_nominee">Nominee</label>
-            <select class="form-control" id="field_nominee" name="nominee" ng-model="vm.nomination.nomineeId" ng-options="user.id as user.id for user in vm.users"            >
+            <select class="form-control" id="field_nominee" name="nominee" ng-model="vm.nomination.nomineeId" ng-options="user.id as user.firstName + ' ' + user.lastName for user in vm.users track by user.id"            >
                 <option value=""></option>
             </select>
         </div>
+        id : {{vm.account.id}} name : {{vm.account.firstName}} + {{ vm.account.lastName}}
         <div class="form-group">
             <label for="field_nominatedBy">Nominated By</label>
-            <select class="form-control" id="field_nominatedBy" name="nominatedBy" ng-model="vm.nomination.nominatedById" ng-options="user.id as user.id for user in vm.users"            >
+            <select class="form-control" id="field_nominatedBy" name="nominatedBy" ng-model="vm.nomination.nominatedById" ng-options="user.id as user.firstName + ' ' + user.lastName for user in vm.users track by user.id"            >
                 <option value=""></option>
             </select>
         </div>

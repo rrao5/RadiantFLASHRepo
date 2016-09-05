@@ -5,9 +5,9 @@
         .module('peersApp')
         .controller('NominationDialogController', NominationDialogController);
 
-    NominationDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Nomination', 'User'];
+    NominationDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Nomination', 'User', 'Principal'];
 
-    function NominationDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Nomination, User) {
+    function NominationDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Nomination, User, Principal) {
         var vm = this;
 
         vm.nomination = entity;
@@ -16,6 +16,19 @@
         vm.openCalendar = openCalendar;
         vm.save = save;
         vm.users = User.query();
+
+        vm.account = null;
+
+
+        getAccount();
+
+        function getAccount() {
+            Principal.identity().then(function(account) {
+                vm.account = account;
+
+            });
+        }
+
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
