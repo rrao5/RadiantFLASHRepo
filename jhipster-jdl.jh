@@ -8,6 +8,20 @@ relationship OneToOne {
 	Nomination{nominatedBy} to User
 }
 
+enum RewardsEnum {
+    GIFT_CARD, MOVIE_TICKETS, CASH, DAY_OFF, CERTIFICATE, FREE_PARKING
+}
+
+entity Review {
+	reviewDate ZonedDateTime
+	reward RewardsEnum
+}
+
+relationship OneToOne {
+	Review{nomination} to Nomination,
+	Review{reviewer} to User
+}
+
 // Set pagination options
 paginate Nomination with pagination
 
