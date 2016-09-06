@@ -3,13 +3,15 @@ mkdir -p `pwd`/.gradle
 
 docker build \
    -t peer-build \
-    -f Dockerfile.build \
+   -f Dockerfile.build \
     .
 
 
 docker run \
+   --name peer-build \
    -u `id -u $USER` \
    -v `pwd`:/app \
    -t peer-build \
-   /bin/bash -c "npm install; ./gradlew clean testReport"
+   /bin/bash -c "npm install; ./gradlew -Pprod clean test bootRepackage"
     
+docker rm peer-build
