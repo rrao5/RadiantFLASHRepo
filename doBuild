@@ -11,5 +11,5 @@ docker run \
    -u `id -u $USER` \
    -v `pwd`:/app \
    -t peer-build \
-   ./gradlew clean testReport 
+   /bin/bash -c "npm install; ./gradlew clean testReport"
     
