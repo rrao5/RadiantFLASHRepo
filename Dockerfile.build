@@ -33,6 +33,7 @@ RUN \
   npm install -g \
     yo \
     bower \
+    gulp \
     gulp-cli 
 
 RUN \

@@ -1,0 +1,16 @@
+mkdir -p `pwd`/.gradle
+
+
+docker build \
+   -t peer-build \
+    -f Dockerfile.build \
+    .
+
+
+docker run \
+   -u `id -u $USER` \
+   -v `pwd`:/app \
+   -v `pwd`/.gradle:/app/.gradle \
+   -t peer-build \
+   ./gradlew clean testReport 
+    
