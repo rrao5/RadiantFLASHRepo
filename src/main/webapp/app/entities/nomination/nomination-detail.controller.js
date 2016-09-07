@@ -5,15 +5,14 @@
         .module('peersApp')
         .controller('NominationDetailController', NominationDetailController);
 
-    NominationDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Nomination', 'User', 'Principal'];
+    NominationDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Nomination', 'User', 'Principal', 'UserHelper'];
 
-    function NominationDetailController($scope, $rootScope, $stateParams, previousState, entity, Nomination, User, Principal) {
+    function NominationDetailController($scope, $rootScope, $stateParams, previousState, entity, Nomination, User, Principal, UserHelper) {
         var vm = this;
 
         vm.nomination = entity;
         vm.previousState = previousState.name;
         vm.loggedInUser = null;
-
 
         getAccount();
 

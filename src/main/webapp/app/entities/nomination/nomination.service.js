@@ -4,9 +4,9 @@
         .module('peersApp')
         .factory('Nomination', Nomination);
 
-    Nomination.$inject = ['$resource', 'DateUtils'];
+    Nomination.$inject = ['$resource', 'DateUtils', 'UserHelper'];
 
-    function Nomination ($resource, DateUtils) {
+    function Nomination ($resource, DateUtils, UserHelper) {
         var resourceUrl =  'api/nominations/:id';
 
         return $resource(resourceUrl, {}, {
@@ -17,6 +17,8 @@
                     if (data) {
                         data = angular.fromJson(data);
                         data.nominationDt = DateUtils.convertDateTimeFromServer(data.nominationDt);
+                        data.nomineeName = UserHelper.getNameById(data.nomineeId);
+                        data.nominatedByName = UserHelper.getNameById(data.nominatedById)
                     }
                     return data;
                 }
