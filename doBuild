@@ -1,17 +1,17 @@
 mkdir -p `pwd`/.gradle
 
-
 docker build \
    -t peer-build \
    -f Dockerfile.build \
     .
 
-
 docker run \
    --name peer-build \
+   -e VERSION=$BUILD_NUMBER \
    -u `id -u $USER` \
    -v `pwd`:/app \
    -t peer-build \
-   /bin/bash -c "npm install; ./gradlew -Pprod clean test bootRepackage"
+   /bin/bash -c \
+   "./gradlew -Pprod clean test bootRepackage"
     
 docker rm peer-build
