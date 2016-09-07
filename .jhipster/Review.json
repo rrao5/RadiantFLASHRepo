@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "nomination",
+            "otherEntityName": "nomination",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "review"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "reviewer",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "review"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "reviewDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "reward",
+            "fieldType": "RewardsEnum",
+            "fieldValues": "GIFT_CARD,MOVIE_TICKETS,CASH,DAY_OFF,CERTIFICATE,FREE_PARKING"
+        }
+    ],
+    "changelogDate": "20160905160453",
+    "entityTableName": "review",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl"
+}
