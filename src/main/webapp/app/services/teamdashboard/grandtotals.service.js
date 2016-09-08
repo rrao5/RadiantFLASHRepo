@@ -8,19 +8,23 @@
     GrandTotalsService.$inject = ['$resource'];
 
     function GrandTotalsService($resource) {
-        /*
-        var service = $resource('api/users/:login', {}, {
+        var resourceUrl = 'teamRest/grandtotals';
+
+        var service = $resource(resourceUrl, {}, {
+            /*
             'query': {
                 method: 'GET',
                 isArray: true
             },
+            */
             'get': {
                 method: 'GET',
                 transformResponse: function(data) {
                     data = angular.fromJson(data);
                     return data;
                 }
-            },
+            }
+            /*,
             'save': {
                 method: 'POST'
             },
@@ -29,19 +33,21 @@
             },
             'delete': {
                 method: 'DELETE'
-            }
-        });
-        */
+            }*/
 
-        var service = {
-            'get': function() {
-                return {
-                    'calls': 100,
-                    'upsellcalls': 50,
-                    'saleamount': 5000
+        });
+
+        /*
+                var service = {
+                    'get': function() {
+                        return {
+                            'calls': 100,
+                            'upsellcalls': 50,
+                            'saleamount': 5000
+                        }
+                    }
                 }
-            }
-        }
+        */
 
         return service;
     }
