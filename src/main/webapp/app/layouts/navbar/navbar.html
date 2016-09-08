@@ -20,6 +20,13 @@
                         <span class="hidden-sm">Home</span>
                     </a>
                 </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="teamdashboard" ong-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <span class="hidden-sm">Team Dashboard</span>
+                    </a>
+                </li>
+
                 <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
                 <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
