@@ -3,28 +3,28 @@
 
     angular
         .module('peersApp')
-        .factory('GrandTotalsService', GrandTotalsService);
+        .factory('TeamsService', TeamsService);
 
-    GrandTotalsService.$inject = ['$resource'];
+    TeamsService.$inject = ['$resource'];
 
-    function GrandTotalsService($resource) {
-        var resourceUrl = 'teamRest/grandtotals';
+    function TeamsService($resource) {
+        var resourceUrl = 'teamRest/teamNames';
+        //resourceUrl = 'api/nominations'
 
         var service = $resource(resourceUrl, {}, {
-            /*
             'query': {
+                //url: '/teamNames',
                 method: 'GET',
                 isArray: true
             },
-            */
             'get': {
                 method: 'GET',
+                url: 'teamRest/teamById :id',
                 transformResponse: function(data) {
                     data = angular.fromJson(data);
                     return data;
                 }
-            }
-            /*,
+            },
             'save': {
                 method: 'POST'
             },
@@ -33,21 +33,21 @@
             },
             'delete': {
                 method: 'DELETE'
-            }*/
-
+            }
         });
 
+
         /*
-                var service = {
-                    'get': function() {
-                        return {
-                            'calls': 100,
-                            'upsellcalls': 50,
-                            'saleamount': 5000
-                        }
-                    }
-                }
-        */
+          var service = {
+              'get': function() {
+                  return {
+                      'calls': 100,
+                      'upsellcalls': 50,
+                      'saleamount': 5000
+                  }
+              }
+          }
+          */
 
         return service;
     }
