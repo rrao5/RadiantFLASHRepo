@@ -92,7 +92,7 @@ if (project.hasProperty('prod')) {
 }
 
 group = 'com.radiant.peers'
-version = "0.0.${System.env.VERSION}-SNAPSHOT"
+version = "0.0.1-SNAPSHOT"
 
 description = ''
 
