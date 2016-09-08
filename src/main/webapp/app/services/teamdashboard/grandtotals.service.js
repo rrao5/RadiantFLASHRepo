@@ -38,7 +38,7 @@
                 return {
                     'calls': 100,
                     'upsellcalls': 50,
-                    'upsellamount': 5000
+                    'saleamount': 5000
                 }
             }
         }
