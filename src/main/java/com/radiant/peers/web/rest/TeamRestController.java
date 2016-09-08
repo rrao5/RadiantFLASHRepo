@@ -34,8 +34,10 @@ public class TeamRestController {
     
     private List<TeamDTO> getTestData() {
     	List<TeamDTO> list = new ArrayList<TeamDTO>();
-    	TeamDTO team1 = new TeamDTO();
-    	list.add(team1);
+    	//TeamDTO team1 = new TeamDTO();
+    	//list.add(team1);
+    	
+    	list.add(getTeamDTO());
     	return list;
     }
     
