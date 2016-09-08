@@ -20,9 +20,10 @@
                         <span class="hidden-sm">Home</span>
                     </a>
                 </li>
+
                 <li ui-sref-active="active" has-authority="ROLE_USER" >
-                    <a ui-sref="teamdashboard" ng-click="vm.collapseNavbar()" id="team-dashboard">
-                        <!--<span class="glyphicon glyphicon-home"></span>-->
+                    <a ui-sref="teamdashboard" id="team-dashboard" ng-click="vm.collapseNavbar()" ng-switch-when="true">
+                        <span class="glyphicon glyphicon-certificate"></span>
                         <span class="hidden-sm">Team Dashboard</span>
                     </a>
                 </li>

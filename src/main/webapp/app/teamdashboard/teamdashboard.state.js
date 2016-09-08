@@ -10,7 +10,7 @@
     function stateConfig($stateProvider) {
         $stateProvider
             .state('teamdashboard', {
-                //parent: 'entity',
+                parent: 'app',
                 url: '/teamdashboard',
                 data: {
                     authorities: ['ROLE_USER', 'ROLE_ADMIN'],
