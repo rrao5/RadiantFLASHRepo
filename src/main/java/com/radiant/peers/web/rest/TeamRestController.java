@@ -3,6 +3,7 @@ package com.radiant.peers.web.rest;
 
 import com.radiant.peers.domain.Team;
 import com.radiant.peers.service.TeamService;
+import com.radiant.peers.service.dto.SaleDTO;
 import com.radiant.peers.service.dto.TeamDTO;
 
 
@@ -28,6 +29,8 @@ public class TeamRestController {
             produces = MediaType.APPLICATION_JSON_VALUE)
         public ResponseEntity<List<TeamDTO>> getTeamNames() {
     	
+    	List<Team> teamNames = teamService.getTeamNames();
+    	
     	HttpHeaders textPlainHeaders = new HttpHeaders();
             return new ResponseEntity<>(getTestData(), textPlainHeaders, HttpStatus.OK); 
         }
@@ -41,7 +44,7 @@ public class TeamRestController {
     	return list;
     }
     
-    @RequestMapping(value = "/teamById/{id}",
+    @RequestMapping(value = "/teamById{id}",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
  
@@ -64,4 +67,31 @@ public class TeamRestController {
     	teamDTO.setName("SREEDHAR CHANAMOLU");
     	return teamDTO;
     }
+    
+    
+    @RequestMapping(value = "/grandtotals",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+ 
+        public ResponseEntity<SaleDTO> grandtotals() {
+    	
+    		
+    		SaleDTO saleDTO = getSaleDTO();
+    		
+    		return Optional.ofNullable(saleDTO).map(result -> new ResponseEntity<>(result,HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    		
+    	 }
+    
+    
+    private SaleDTO getSaleDTO() {;
+    SaleDTO saleDTO = new SaleDTO();
+	saleDTO.setNoCalls(25);
+	saleDTO.setSaleAmount(123);
+	saleDTO.setUpsalecalls(30);
+    
+	return saleDTO;
+}
+    
+    
 }
