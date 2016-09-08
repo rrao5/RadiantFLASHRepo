@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand logo" href="#/" ng-click="vm.collapseNavbar()">
-                <img class="logo-img" src="content/images/logo-jhipster.png"/>
+                <!--<img class="logo-img" src="content/images/logo-jhipster.png"/>-->
                 <span>Peers</span> <span class="navbar-version">v{{VERSION}}</span>
             </a>
         </div>
@@ -20,9 +20,10 @@
                         <span class="hidden-sm">Home</span>
                     </a>
                 </li>
-                <li ui-sref-active="active" has-authority="ROLE_USER" >
-                    <a ui-sref="teamdashboard" ng-click="vm.collapseNavbar()" id="team-dashboard">
-                        <!--<span class="glyphicon glyphicon-home"></span>-->
+
+                <li ui-sref-active="active" has-any-role="ROLE_USER,ROLE_ADMIN" >
+                    <a ui-sref="teamdashboard" id="team-dashboard" ng-click="vm.collapseNavbar()" ng-switch-when="true">
+                        <span class="glyphicon glyphicon-certificate"></span>
                         <span class="hidden-sm">Team Dashboard</span>
                     </a>
                 </li>
