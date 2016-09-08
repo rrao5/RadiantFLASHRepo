@@ -1,0 +1,17 @@
+<div class="grand-totals">
+    <h2>Grand Totals</h2>
+    {{vm.totals.calls}}
+    {{vm.totals.upsellcalls}}
+    {{vm.totals.saleamount}}
+    {{vm.totals.upsellcalls/vm.totals.calls }}
+    <div></div>
+</div>
+
+
+
+<div class="row">
+  <div class="text-center col-md-3"><h1>{{vm.totals.calls}}</h1><p>Total Calls</p></div>
+  <div class="text-center col-md-3"><h1>{{vm.totals.upsellcalls}}</h1><p>Total Calls</p></div>
+  <div class="text-center col-md-3"><h1>{{vm.totals.saleamount}}</h1><p>Total Upsell Amount</p></div>
+  <div class="text-center col-md-3"><h1>{{vm.totals.upsellcalls/vm.totals.calls*100|number:0}} %</h1><p>Upsell Percentage</p></div>
+</div>

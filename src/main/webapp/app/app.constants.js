@@ -4,6 +4,6 @@
     angular
         .module('peersApp')
         .constant('VERSION', "0.0.${System.env.VERSION}-SNAPSHOT")
-        .constant('DEBUG_INFO_ENABLED', false)
+        .constant('DEBUG_INFO_ENABLED', true)
 ;
 })();
