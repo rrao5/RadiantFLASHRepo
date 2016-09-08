@@ -27,6 +27,10 @@ public class TeamDTO {
 		this.name = name;
 	}
 	
+	public TeamDTO(){
+		
+	}
+	
     public TeamDTO(Team team) {
     	this.id=team.getId();
     	this.name=team.getName();
