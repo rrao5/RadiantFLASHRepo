@@ -41,7 +41,7 @@ public class TeamRestController {
     	return list;
     }
     
-    @RequestMapping(value = "/teamById {id}",
+    @RequestMapping(value = "/teamById/{id}",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
  
